@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SriLabX Solutions LLP - Scientific Excellence Partner</title>
+    <title>SriLabX Solutions LLP - Laboratory Instruments & Scientific Equipment</title>
     <style>
         * {
             margin: 0;
@@ -12,28 +12,35 @@
         }
 
         :root {
-            --primary-blue: #001F3F;
-            --accent-green: #76B82A;
-            --light-bg: #F8FAFC;
-            --dark-text: #1A202C;
-            --light-text: #F5F5F5;
-            --border-color: #E2E8F0;
+            --dark-bg: #0F1419;
+            --darker-bg: #0A0E13;
+            --card-dark: #1A1F2E;
+            --bright-orange: #FF6B35;
+            --bright-pink: #FF1493;
+            --bright-cyan: #00D9FF;
+            --bright-green: #39FF14;
+            --bright-purple: #9D4EDD;
+            --bright-yellow: #FFD60A;
+            --text-light: #F0F0F0;
+            --text-gray: #B0B0B0;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark-text);
+            color: var(--text-light);
+            background-color: var(--dark-bg);
         }
 
+        /* Header */
         header {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 15px 0;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--card-dark) 100%);
+            border-bottom: 2px solid var(--bright-cyan);
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 31, 63, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.2);
         }
 
         .header-container {
@@ -48,52 +55,104 @@
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
-        .logo-text {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+            transition: transform 0.3s ease;
         }
 
-        .logo-text span {
-            color: var(--accent-green);
+        .logo-img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .company-name {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--bright-cyan) 0%, var(--bright-green) 50%, var(--bright-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
         }
 
         nav a {
-            color: white;
+            color: var(--text-light);
             text-decoration: none;
-            margin-left: 30px;
-            transition: color 0.3s ease;
+            font-weight: 600;
             font-size: 14px;
-            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bright-orange);
+            transition: width 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--accent-green);
+            color: var(--bright-orange);
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        nav a:hover::before {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #002E5C 100%);
-            color: white;
-            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--card-dark) 100%);
+            padding: 100px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 2px solid var(--bright-orange);
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 400px;
-            background: rgba(118, 184, 42, 0.05);
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            transform: translate(100px, -100px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
         }
 
         .hero-content {
@@ -104,50 +163,58 @@
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
+            font-size: 56px;
+            font-weight: 900;
             margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--bright-cyan) 0%, var(--bright-green) 50%, var(--bright-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
             line-height: 1.2;
         }
 
         .hero .tagline {
             font-size: 20px;
-            color: var(--accent-green);
+            color: var(--bright-orange);
             margin-bottom: 30px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .hero p {
             font-size: 16px;
             margin-bottom: 40px;
-            opacity: 0.95;
+            color: var(--text-gray);
             line-height: 1.8;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: var(--accent-green);
+            background: linear-gradient(135deg, var(--bright-orange) 0%, var(--bright-pink) 100%);
             color: white;
-            padding: 15px 40px;
+            padding: 16px 45px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
+            border-radius: 50px;
+            font-weight: 700;
             transition: all 0.3s ease;
-            border: 2px solid var(--accent-green);
+            border: 2px solid transparent;
             cursor: pointer;
             font-size: 16px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
         }
 
         .cta-button:hover {
-            background-color: transparent;
-            color: var(--accent-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+            border-color: var(--bright-cyan);
         }
 
-        /* Services Section */
-        .services {
-            padding: 80px 20px;
-            background-color: var(--light-bg);
+        /* Products Section */
+        .products {
+            padding: 100px 20px;
+            background-color: var(--dark-bg);
         }
 
         .section-container {
@@ -156,143 +223,360 @@
         }
 
         .section-title {
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 42px;
+            font-weight: 900;
             text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary-blue);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bright-cyan), var(--bright-orange), var(--bright-pink));
+            border-radius: 2px;
         }
 
         .section-title span {
-            color: var(--accent-green);
+            background: linear-gradient(135deg, var(--bright-cyan) 0%, var(--bright-green) 50%, var(--bright-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--card-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-colors {
+            --color: var(--bright-orange);
+        }
+
+        .product-card:nth-child(1) { border-color: var(--bright-orange); --color: var(--bright-orange); }
+        .product-card:nth-child(2) { border-color: var(--bright-pink); --color: var(--bright-pink); }
+        .product-card:nth-child(3) { border-color: var(--bright-cyan); --color: var(--bright-cyan); }
+        .product-card:nth-child(4) { border-color: var(--bright-green); --color: var(--bright-green); }
+        .product-card:nth-child(5) { border-color: var(--bright-purple); --color: var(--bright-purple); }
+        .product-card:nth-child(6) { border-color: var(--bright-yellow); --color: var(--bright-yellow); }
+        .product-card:nth-child(7) { border-color: var(--bright-orange); --color: var(--bright-orange); }
+        .product-card:nth-child(8) { border-color: var(--bright-pink); --color: var(--bright-pink); }
+        .product-card:nth-child(9) { border-color: var(--bright-cyan); --color: var(--bright-cyan); }
+        .product-card:nth-child(10) { border-color: var(--bright-green); --color: var(--bright-green); }
+        .product-card:nth-child(11) { border-color: var(--bright-purple); --color: var(--bright-purple); }
+        .product-card:nth-child(12) { border-color: var(--bright-yellow); --color: var(--bright-yellow); }
+        .product-card:nth-child(13) { border-color: var(--bright-orange); --color: var(--bright-orange); }
+        .product-card:nth-child(14) { border-color: var(--bright-pink); --color: var(--bright-pink); }
+        .product-card:nth-child(15) { border-color: var(--bright-cyan); --color: var(--bright-cyan); }
+        .product-card:nth-child(16) { border-color: var(--bright-green); --color: var(--bright-green); }
+        .product-card:nth-child(17) { border-color: var(--bright-purple); --color: var(--bright-purple); }
+        .product-card:nth-child(18) { border-color: var(--bright-yellow); --color: var(--bright-yellow); }
+        .product-card:nth-child(19) { border-color: var(--bright-orange); --color: var(--bright-orange); }
+        .product-card:nth-child(20) { border-color: var(--bright-pink); --color: var(--bright-pink); }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 107, 53, 0.02) 100%);
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            color: var(--color);
+        }
+
+        .product-brief {
+            font-size: 12px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .view-details {
+            display: inline-block;
+            background: var(--color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .view-details {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--card-dark) 0%, var(--dark-bg) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid;
+            max-width: 700px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content.color-1 { border-color: var(--bright-orange); }
+        .modal-content.color-2 { border-color: var(--bright-pink); }
+        .modal-content.color-3 { border-color: var(--bright-cyan); }
+        .modal-content.color-4 { border-color: var(--bright-green); }
+        .modal-content.color-5 { border-color: var(--bright-purple); }
+        .modal-content.color-6 { border-color: var(--bright-yellow); }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--text-light);
+            cursor: pointer;
+            background: rgba(255, 107, 53, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 107, 53, 0.5);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 30px;
+        }
+
+        .modal-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .modal-details {
+            margin-top: 25px;
+        }
+
+        .detail-section {
+            margin-bottom: 25px;
+        }
+
+        .detail-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .detail-item {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .detail-item::before {
+            content: '▸';
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--card-dark) 0%, var(--dark-bg) 100%);
+            border-top: 2px solid var(--bright-purple);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
         }
 
         .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 8px;
+            background: var(--card-dark);
+            padding: 35px 25px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--accent-green);
+            border-top: 4px solid;
         }
+
+        .service-card:nth-child(1) { border-top-color: var(--bright-orange); }
+        .service-card:nth-child(2) { border-top-color: var(--bright-cyan); }
+        .service-card:nth-child(3) { border-top-color: var(--bright-pink); }
+        .service-card:nth-child(4) { border-top-color: var(--bright-green); }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0, 31, 63, 0.15);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.2);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
+            font-size: 48px;
+            margin-bottom: 15px;
         }
 
         .service-card h3 {
             font-size: 20px;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            font-weight: 600;
+            margin-bottom: 12px;
+            font-weight: 800;
         }
+
+        .service-card:nth-child(1) h3 { color: var(--bright-orange); }
+        .service-card:nth-child(2) h3 { color: var(--bright-cyan); }
+        .service-card:nth-child(3) h3 { color: var(--bright-pink); }
+        .service-card:nth-child(4) h3 { color: var(--bright-green); }
 
         .service-card p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Values Section */
-        .values {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #002E5C 100%);
-            color: white;
-        }
-
-        .values .section-title {
-            color: white;
-            margin-bottom: 50px;
-        }
-
-        .values .section-title span {
-            color: var(--accent-green);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .value-item {
-            text-align: center;
-        }
-
-        .value-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(118, 184, 42, 0.2);
-            border: 2px solid var(--accent-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 32px;
-        }
-
-        .value-item h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .value-item p {
-            font-size: 14px;
-            opacity: 0.9;
+            color: var(--text-gray);
+            font-size: 13px;
+            line-height: 1.7;
         }
 
         /* Contact Section */
         .contact {
-            padding: 80px 20px;
-            background-color: var(--light-bg);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--card-dark) 100%);
+            border-top: 2px solid var(--bright-yellow);
         }
 
-        .contact .section-title {
-            margin-bottom: 50px;
+        .contact .section-title span {
+            color: var(--bright-yellow);
         }
 
         .contact-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .contact-info {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
+            background: var(--card-dark);
+            padding: 35px;
+            border-radius: 12px;
+            border: 2px solid var(--bright-cyan);
+            backdrop-filter: blur(10px);
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 18px;
+            margin-bottom: 28px;
         }
 
         .contact-item:last-child {
@@ -300,47 +584,58 @@
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--bright-orange) 0%, var(--bright-pink) 100%);
             color: white;
-            border-radius: 50%;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 18px;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
         .contact-text h4 {
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-            font-size: 14px;
-            font-weight: 600;
+            color: var(--bright-cyan);
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .contact-text p {
-            color: #666;
+            color: var(--text-gray);
             font-size: 14px;
         }
 
         .contact-text a {
-            color: var(--accent-green);
+            color: var(--bright-orange);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .contact-text a:hover {
+            color: var(--bright-pink);
             text-decoration: underline;
         }
 
         .contact-form {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
+            background: var(--card-dark);
+            padding: 35px;
+            border-radius: 12px;
+            border: 2px solid var(--bright-pink);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form h3 {
+            color: var(--bright-pink);
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 800;
         }
 
         .form-group {
@@ -350,27 +645,37 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: var(--primary-blue);
-            font-weight: 500;
-            font-size: 14px;
+            color: var(--bright-cyan);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
+            padding: 12px 15px;
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            border-radius: 8px;
             font-family: inherit;
             font-size: 14px;
-            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-gray);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 3px rgba(118, 184, 42, 0.1);
+            border-color: var(--bright-cyan);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+            background: rgba(0, 217, 255, 0.05);
         }
 
         .form-group textarea {
@@ -378,13 +683,56 @@
             min-height: 120px;
         }
 
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--bright-pink) 0%, var(--bright-orange) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            font-weight: 600;
+        }
+
+        .form-message.success {
+            background-color: rgba(57, 255, 20, 0.2);
+            color: var(--bright-green);
+            border: 2px solid var(--bright-green);
+        }
+
+        .form-message.error {
+            background-color: rgba(255, 20, 147, 0.2);
+            color: var(--bright-pink);
+            border: 2px solid var(--bright-pink);
+        }
+
         /* Footer */
         footer {
-            background-color: var(--primary-blue);
-            color: white;
+            background-color: var(--darker-bg);
+            color: var(--text-light);
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             font-size: 14px;
+            border-top: 2px solid var(--bright-green);
         }
 
         .footer-content {
@@ -393,11 +741,12 @@
         }
 
         .footer-divider {
-            height: 2px;
-            background-color: var(--accent-green);
+            height: 3px;
+            background: linear-gradient(90deg, var(--bright-cyan), var(--bright-orange), var(--bright-pink), var(--bright-green));
             margin: 20px 0;
-            width: 60px;
+            width: 100px;
             display: inline-block;
+            border-radius: 2px;
         }
 
         /* Responsive Design */
@@ -407,7 +756,7 @@
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
 
             .hero .tagline {
@@ -415,26 +764,36 @@
             }
 
             .section-title {
-                font-size: 28px;
+                font-size: 32px;
             }
 
+            .products-grid,
             .services-grid,
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-
             .contact-wrapper {
                 grid-template-columns: 1fr;
+            }
+
+            .logo-img {
+                height: 45px;
+            }
+
+            .company-name {
+                font-size: 18px;
+            }
+
+            .modal-content {
+                padding: 30px;
+                width: 95%;
             }
         }
 
         @media (max-width: 480px) {
             .hero {
-                padding: 50px 15px;
+                padding: 60px 15px;
             }
 
             .hero h1 {
-                font-size: 24px;
+                font-size: 28px;
             }
 
             .cta-button {
@@ -443,6 +802,33 @@
             }
 
             .section-title {
+                font-size: 26px;
+            }
+
+            .products {
+                padding: 60px 15px;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .modal-content {
+                padding: 20px;
+                max-height: 80vh;
+            }
+
+            .modal-title {
                 font-size: 24px;
             }
         }
@@ -453,11 +839,12 @@
     <header>
         <div class="header-container">
             <div class="logo-section">
-                <div class="logo-text">Sri<span>Lab</span>X</div>
+                <img src="logo.png" alt="SriLabX Logo" class="logo-img">
+                <div class="company-name">SriLabX</div>
             </div>
             <nav>
+                <a href="#products">Products</a>
                 <a href="#services">Services</a>
-                <a href="#values">Why Us</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -466,64 +853,58 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Your Partner in Scientific Excellence</h1>
-            <p class="tagline">PRECISION • QUALITY • TRUST • INNOVATION</p>
-            <p>Complete solutions for pharmaceutical, laboratory, and research industries with cutting-edge instruments and dedicated support.</p>
+            <h1>SriLabX Solutions</h1>
+            <p class="tagline">Your Partner in Scientific Excellence</p>
+            <p>Complete Solutions for Laboratory Instruments, Equipment & Consumables</p>
             <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Products Section -->
+    <section class="products" id="products">
         <div class="section-container">
-            <h2 class="section-title">Our <span>Services</span></h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🔬</div>
-                    <h3>Laboratory Instruments</h3>
-                    <p>State-of-the-art laboratory equipment designed for precision and reliability in research and diagnostics.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💊</div>
-                    <h3>Pharma Distribution</h3>
-                    <p>Reliable distribution of pharmaceutical products with quality assurance and compliance with industry standards.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📦</div>
-                    <h3>Scientific Supplies</h3>
-                    <p>Comprehensive range of scientific supplies and consumables for laboratories and research institutions.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Service & Support</h3>
-                    <p>Expert technical support, maintenance, and after-sales service to ensure optimal equipment performance.</p>
-                </div>
+            <h2 class="section-title">Our <span>Products</span></h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be populated by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="values" id="values">
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content" id="modalContent">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon"></div>
+                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-subtitle" id="modalSubtitle"></div>
+            </div>
+            <div class="modal-details" id="modalDetails"></div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="section-container">
             <h2 class="section-title">Why Choose <span>SriLabX</span></h2>
-            <div class="values-grid">
-                <div class="value-item">
-                    <div class="value-icon">🎯</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
                     <h3>Precision</h3>
                     <p>Meticulous attention to detail in every solution we provide.</p>
                 </div>
-                <div class="value-item">
-                    <div class="value-icon">✅</div>
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
                     <h3>Quality</h3>
                     <p>Committed to delivering only the highest quality products and services.</p>
                 </div>
-                <div class="value-item">
-                    <div class="value-icon">🤝</div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
                     <h3>Trust</h3>
                     <p>Building lasting relationships based on reliability and transparency.</p>
                 </div>
-                <div class="value-item">
-                    <div class="value-icon">💡</div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
                     <h3>Innovation</h3>
                     <p>Staying ahead with cutting-edge solutions and continuous improvement.</p>
                 </div>
@@ -567,24 +948,26 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXXXXXXX">
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
                         </div>
-                        <button type="submit" class="cta-button" style="width: 100%; text-align: center;">Send Message</button>
+                        <button type="submit" class="form-submit">Send Message</button>
+                        <div class="form-message" id="formMessage"></div>
                     </form>
                 </div>
             </div>
@@ -599,5 +982,327 @@
             <p>Your Partner in Scientific Excellence</p>
         </div>
     </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                name: 'UV Cabinet',
+                icon: '🔬',
+                brief: 'UV sterilization equipment',
+                details: [
+                    'Advanced UV sterilization technology',
+                    'Safeguards laboratory samples and materials',
+                    'Compact and efficient design'
+                ]
+            },
+            {
+                name: 'Digital Water/Oil Bath',
+                icon: '🛁',
+                brief: 'Precision temperature control',
+                details: [
+                    'Temperature range: Ambient to 200°C',
+                    'Uniform heat distribution',
+                    'Digital temperature display and control'
+                ]
+            },
+            {
+                name: 'Ultrasonic Cleaner',
+                icon: '🔊',
+                brief: 'Advanced cleaning technology',
+                details: [
+                    'Frequency: 40 kHz',
+                    'Perfect for laboratory glassware',
+                    'Digital timer and power control'
+                ]
+            },
+            {
+                name: 'Heating Mantle',
+                icon: '🔥',
+                brief: 'Efficient laboratory heating',
+                details: [
+                    'Capacity: 250ml to 5000ml',
+                    'Max temperature: 300°C',
+                    'Variable power control'
+                ]
+            },
+            {
+                name: 'Mechanical Stirrer',
+                icon: '⚙️',
+                brief: 'Precision mixing equipment',
+                details: [
+                    'Variable speed control',
+                    'Durable construction',
+                    'Suitable for various mixing applications'
+                ]
+            },
+            {
+                name: 'Digital Magnetic Stirrer',
+                icon: '🧲',
+                brief: 'Advanced magnetic stirring',
+                details: [
+                    'Digital speed control',
+                    'Heating function available',
+                    'Efficient and reliable operation'
+                ]
+            },
+            {
+                name: 'Water Distillation Unit',
+                icon: '💧',
+                brief: 'High-quality water purification',
+                details: [
+                    'Produces distilled water',
+                    'Compact and energy-efficient',
+                    'Suitable for laboratory use'
+                ]
+            },
+            {
+                name: '2-8°C Refrigerator',
+                icon: '🧊',
+                brief: 'Medical-grade cooling storage',
+                details: [
+                    'Temperature range: 2-8°C',
+                    'Perfect for sample preservation',
+                    'Reliable and consistent cooling'
+                ]
+            },
+            {
+                name: 'Centrifuge',
+                icon: '🔄',
+                brief: 'High-speed sample separation',
+                details: [
+                    'Variable speed settings',
+                    'Precision rotor system',
+                    'Multiple capacity options'
+                ]
+            },
+            {
+                name: 'PH/Conductivity/TDS Meters',
+                icon: '📊',
+                brief: 'Multi-parameter water analysis',
+                details: [
+                    'Precise measurement capability',
+                    'Digital display',
+                    'Portable and easy to use'
+                ]
+            },
+            {
+                name: 'Vacuum Pump',
+                icon: '⊹',
+                brief: 'Industrial vacuum generation',
+                details: [
+                    'High vacuum efficiency',
+                    'Durable construction',
+                    'Various capacity options'
+                ]
+            },
+            {
+                name: 'Hot Air Oven',
+                icon: '🌡️',
+                brief: 'Precision drying and heating',
+                details: [
+                    'Temperature range: Room temp to 250°C',
+                    'Uniform heat distribution',
+                    'Ideal for sterilization and drying'
+                ]
+            },
+            {
+                name: 'Vacuum Oven & Incubator',
+                icon: '🔓',
+                brief: 'Combined vacuum and heating',
+                details: [
+                    'Dual functionality',
+                    'Precise temperature control',
+                    'Used for various laboratory applications'
+                ]
+            },
+            {
+                name: 'Vortex Mixer',
+                icon: '🌪️',
+                brief: 'Rapid sample mixing',
+                details: [
+                    'Variable speed control',
+                    'Quick and efficient mixing',
+                    'Compact design'
+                ]
+            },
+            {
+                name: 'Surgical Bath',
+                icon: '🛁',
+                brief: 'Specialized heating bath',
+                details: [
+                    'Precision temperature control',
+                    'Stainless steel construction',
+                    'Medical-grade quality'
+                ]
+            },
+            {
+                name: 'Water Bath',
+                icon: '💦',
+                brief: 'Laboratory water heating',
+                details: [
+                    'Uniform temperature maintenance',
+                    'Multiple size options',
+                    'Energy-efficient operation'
+                ]
+            },
+            {
+                name: 'Autoclave',
+                icon: '⚙️',
+                brief: 'High-pressure sterilization',
+                details: [
+                    'Temperature: up to 121°C',
+                    'Reliable sterilization',
+                    'Laboratory and medical use'
+                ]
+            },
+            {
+                name: 'BOD Incubator',
+                icon: '🔬',
+                brief: 'Biochemical oxygen demand testing',
+                details: [
+                    'Precise temperature control',
+                    'Ideal for microbiology',
+                    'Professional-grade equipment'
+                ]
+            },
+            {
+                name: 'Weighing Balance',
+                icon: '⚖️',
+                brief: 'Precision laboratory weighing',
+                details: [
+                    'High accuracy measurement',
+                    'Digital display',
+                    'Multiple range options'
+                ]
+            },
+            {
+                name: 'Hot Plate (Round & Rectangle)',
+                icon: '🍳',
+                brief: 'Compact heating element',
+                details: [
+                    'Variable temperature control',
+                    'Compact design',
+                    'Ideal for small-scale heating'
+                ]
+            }
+        ];
+
+        // Render Products
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            products.forEach((product, index) => {
+                const colorClass = `color-${(index % 6) + 1}`;
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">${product.icon}</div>
+                    <div class="product-content">
+                        <h3>${product.name}</h3>
+                        <p class="product-brief">${product.brief}</p>
+                        <div class="view-details">Click for Details</div>
+                    </div>
+                `;
+                card.onclick = () => openModal(product, colorClass);
+                grid.appendChild(card);
+            });
+        }
+
+        // Modal Functions
+        function openModal(product, colorClass) {
+            const modal = document.getElementById('productModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalIcon = document.getElementById('modalIcon');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalSubtitle = document.getElementById('modalSubtitle');
+            const modalDetails = document.getElementById('modalDetails');
+
+            modalContent.className = `modal-content ${colorClass}`;
+            modalIcon.textContent = product.icon;
+            modalTitle.textContent = product.name;
+            modalSubtitle.textContent = product.brief;
+
+            let detailsHTML = '<div class="detail-section"><div class="detail-title">Key Features & Specifications:</div>';
+            product.details.forEach(detail => {
+                detailsHTML += `<div class="detail-item">${detail}</div>`;
+            });
+            detailsHTML += '</div>';
+
+            modalDetails.innerHTML = detailsHTML;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            const formMessage = document.getElementById('formMessage');
+
+            const emailBody = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
+            const mailtoLink = `mailto:srilabxsolutions@gmail.com?subject=New Contact Form Message from ${name}&body=${encodeURIComponent(emailBody)}`;
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('message', message);
+
+            fetch('https://formspree.io/f/xwpdawgv', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    formMessage.textContent = '✓ Message sent successfully! We\'ll get back to you soon.';
+                    formMessage.classList.remove('error');
+                    formMessage.classList.add('success');
+                    formMessage.style.display = 'block';
+                    document.getElementById('contactForm').reset();
+                    
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = '✓ Ready to send! Click to open your email client.';
+                formMessage.classList.remove('error');
+                formMessage.classList.add('success');
+                formMessage.style.display = 'block';
+                formMessage.style.cursor = 'pointer';
+                formMessage.onclick = () => window.location.href = mailtoLink;
+                
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            });
+        });
+
+        // Initialize
+        renderProducts();
+    </script>
 </body>
 </html>
