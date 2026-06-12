@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SriLabX Solutions LLP - Scientific Excellence Partner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #001F3F;
+            --accent-green: #76B82A;
+            --light-bg: #F8FAFC;
+            --dark-text: #1A202C;
+            --light-text: #F5F5F5;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 31, 63, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent-green);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #002E5C 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(118, 184, 42, 0.05);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: var(--accent-green);
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-green);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent-green);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background-color: var(--light-bg);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-blue);
+        }
+
+        .section-title span {
+            color: var(--accent-green);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-green);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 31, 63, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #002E5C 100%);
+            color: white;
+        }
+
+        .values .section-title {
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .values .section-title span {
+            color: var(--accent-green);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-item {
+            text-align: center;
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(118, 184, 42, 0.2);
+            border: 2px solid var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+        }
+
+        .value-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .value-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background-color: var(--light-bg);
+        }
+
+        .contact .section-title {
+            margin-bottom: 50px;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .contact-text h4 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-text p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .contact-text a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-blue);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(118, 184, 42, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background-color: var(--accent-green);
+            margin: 20px 0;
+            width: 60px;
+            display: inline-block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero .tagline {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .services-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-text">Sri<span>Lab</span>X</div>
+            </div>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#values">Why Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Partner in Scientific Excellence</h1>
+            <p class="tagline">PRECISION • QUALITY • TRUST • INNOVATION</p>
+            <p>Complete solutions for pharmaceutical, laboratory, and research industries with cutting-edge instruments and dedicated support.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <h2 class="section-title">Our <span>Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h3>Laboratory Instruments</h3>
+                    <p>State-of-the-art laboratory equipment designed for precision and reliability in research and diagnostics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💊</div>
+                    <h3>Pharma Distribution</h3>
+                    <p>Reliable distribution of pharmaceutical products with quality assurance and compliance with industry standards.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Scientific Supplies</h3>
+                    <p>Comprehensive range of scientific supplies and consumables for laboratories and research institutions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Service & Support</h3>
+                    <p>Expert technical support, maintenance, and after-sales service to ensure optimal equipment performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <div class="section-container">
+            <h2 class="section-title">Why Choose <span>SriLabX</span></h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🎯</div>
+                    <h3>Precision</h3>
+                    <p>Meticulous attention to detail in every solution we provide.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">✅</div>
+                    <h3>Quality</h3>
+                    <p>Committed to delivering only the highest quality products and services.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3>Trust</h3>
+                    <p>Building lasting relationships based on reliability and transparency.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>Staying ahead with cutting-edge solutions and continuous improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <h2 class="section-title">Get in <span>Touch</span></h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+917702640800">+91 77026 40800</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:srilabxsolutions@gmail.com">srilabxsolutions@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-text">
+                            <h4>Website</h4>
+                            <p><a href="http://www.srilabxsolutions.com" target="_blank">www.srilabxsolutions.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Address</h4>
+                            <p>G1, 1st Floor Sunshine Heights,<br>Nandanavam Colony, Bachupally,<br>Hyderabad, Telangana - 500090</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%; text-align: center;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 SriLabX Solutions LLP. All rights reserved.</p>
+            <div class="footer-divider"></div>
+            <p>Your Partner in Scientific Excellence</p>
+        </div>
+    </footer>
+</body>
+</html>
